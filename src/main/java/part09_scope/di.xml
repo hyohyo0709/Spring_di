@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- 
+한 컨테이너에서 생성된 빈은 singleton으로 생성된다
+빈을 사용할 때마다 새로 생성되게 하려면 prototype으로 설정
+scope에서 request, session을 web application에서 사용된다
+
+ -->
+
+<bean id="user" class="part09_scope.User" scope="prototype">
+
+<constructor-arg value="아라가키 유이"/>
+<constructor-arg value="30"/>
+</bean>
+
+<bean id="svc1" class="part09_scope.ServiceImp">
+<constructor-arg ref="user"/>
+</bean>
+
+<bean id="svc2" class="part09_scope.ServiceImp">
+<constructor-arg ref="user"/>
+</bean>
+
+</beans>

@@ -1,0 +1,25 @@
+package part05_exam;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+/*
+ * 출력 결과
+ * 레코드 출력
+ * 
+ */
+public class SpringTest {
+
+	public static void main(String[] args) {
+String path = "part05_exam/di.xml";
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext(path);
+		Service svc = (Service)context.getBean("svc");
+		svc.prn();
+
+		
+
+	}
+
+}
